@@ -298,8 +298,8 @@ function openModal(pokemon) {
     <h2 class="modal__name">${pokemon.name}</h2>
     <p class="modal__id">#${String(pokemon.id).padStart(3, '0')}</p>
     <div class="types" style="justify-content:center; margin-bottom:15px">${tipos}</div>
-    <p style="margin-bottom:8px"><strong>Altura:</strong> ${pokemon.height / 10} m &nbsp;|&nbsp;
-       <strong>Peso:</strong> ${pokemon.weight / 10} kg</p>
+    <p style="margin-bottom:8px"><strong>Altura:</strong> ${pokemon.height / 10} m</p>
+    <p style="margin-bottom:8px"><strong>Peso:</strong> ${pokemon.weight / 10} kg</p>
     ${statsHTML}
   `;
 
@@ -350,6 +350,36 @@ function showError(msg) {
 function hideError() {
   errorMsg.classList.add('hidden');
 }
+
+// =============================================
+// PANELES MÓVIL — DRAWER TOGGLE
+// =============================================
+const panelLeft   = document.getElementById('panel-left');
+const panelRight  = document.getElementById('panel-right');
+const overlay     = document.getElementById('overlay');
+const toggleLeft  = document.getElementById('toggle-left');
+const toggleRight = document.getElementById('toggle-right');
+
+function openPanel(panel) {
+  closeAllPanels();
+  panel.classList.add('open');
+  overlay.classList.remove('hidden');
+}
+
+function closeAllPanels() {
+  panelLeft.classList.remove('open');
+  panelRight.classList.remove('open');
+  overlay.classList.add('hidden');
+}
+
+toggleLeft.addEventListener('click',  () => panelLeft.classList.contains('open')  ? closeAllPanels() : openPanel(panelLeft));
+toggleRight.addEventListener('click', () => panelRight.classList.contains('open') ? closeAllPanels() : openPanel(panelRight));
+overlay.addEventListener('click', closeAllPanels);
+
+// Cerrar drawer al seleccionar un tipo o letra en móvil
+typeFilter.addEventListener('click',  () => { if (window.innerWidth <= 768) closeAllPanels(); });
+alphaFilter.addEventListener('click', () => { if (window.innerWidth <= 768) closeAllPanels(); });
+pokemonList.addEventListener('click', () => { if (window.innerWidth <= 768) closeAllPanels(); });
 
 // =============================================
 // EVENTOS
