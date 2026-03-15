@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pokédex</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- ===== ENCABEZADO ===== -->
+  <header class="header">
+    <img
+      src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png"
+      alt="Pokeball"
+      class="header__ball"
+    />
+    <h1 class="header__title">Pokédex</h1>
+  </header>
+
+  <main class="main">
+
+    <!-- ===== SECCIÓN DE BÚSQUEDA ===== -->
+    <section class="search">
+      <input
+        type="text"
+        id="search-input"
+        class="search__input"
+        placeholder="Busca un Pokémon por nombre o número..."
+      />
+      <button id="search-btn" class="btn btn--primary">Buscar</button>
+      <button id="reset-btn" class="btn btn--secondary">Ver todos</button>
+    </section>
+
+    <!-- ===== MENSAJE DE ERROR ===== -->
+    <div id="error-msg" class="error hidden">
+      ❌ Pokémon no encontrado. Intenta con otro nombre o número.
+    </div>
+
+    <!-- ===== CUADRÍCULA DE POKÉMON ===== -->
+    <section id="pokemon-grid" class="grid"></section>
+
+    <!-- ===== PAGINACIÓN ===== -->
+    <div class="pagination" id="pagination">
+      <button id="prev-btn" class="btn btn--pag" disabled>← Anterior</button>
+      <span id="page-info" class="pagination__info">Página 1</span>
+      <button id="next-btn" class="btn btn--pag">Siguiente →</button>
+    </div>
+
+  </main>
+
+  <!-- ===== MODAL DE DETALLE ===== -->
+  <div id="modal" class="modal hidden">
+    <div class="modal__content">
+      <button id="modal-close" class="modal__close">✕</button>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

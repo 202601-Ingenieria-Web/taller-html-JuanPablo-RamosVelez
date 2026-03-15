@@ -1,0 +1,306 @@
+/* ===== RESET Y VARIABLES ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --rojo: #cc0000;
+  --rojo-oscuro: #a00000;
+  --amarillo: #ffcb05;
+  --gris-claro: #f5f5f5;
+  --gris: #ddd;
+  --texto: #333;
+  --blanco: #fff;
+  --sombra: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f0f0f0;
+  color: var(--texto);
+  min-height: 100vh;
+}
+
+/* ===== ENCABEZADO ===== */
+.header {
+  background: linear-gradient(135deg, var(--rojo), var(--rojo-oscuro));
+  color: var(--blanco);
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  box-shadow: var(--sombra);
+}
+
+.header__ball {
+  width: 40px;
+  height: 40px;
+  animation: girar 4s linear infinite;
+}
+
+@keyframes girar {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.header__title {
+  font-size: 2.2rem;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+/* ===== CONTENIDO PRINCIPAL ===== */
+.main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px 20px;
+}
+
+/* ===== BÚSQUEDA ===== */
+.search {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 25px;
+}
+
+.search__input {
+  flex: 1;
+  max-width: 400px;
+  padding: 12px 18px;
+  border: 2px solid var(--gris);
+  border-radius: 30px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.search__input:focus {
+  border-color: var(--rojo);
+}
+
+/* ===== BOTONES ===== */
+.btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 30px;
+  font-size: 0.95rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn--primary  { background: var(--rojo);    color: var(--blanco); }
+.btn--secondary{ background: var(--amarillo); color: var(--texto);  }
+.btn--pag      { background: var(--rojo);    color: var(--blanco); }
+
+/* ===== ERROR ===== */
+.error {
+  text-align: center;
+  color: var(--rojo);
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  padding: 15px;
+  background: #ffe0e0;
+  border-radius: 10px;
+}
+
+.hidden { display: none !important; }
+
+/* ===== CUADRÍCULA ===== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+/* ===== TARJETA ===== */
+.card {
+  background: var(--blanco);
+  border-radius: 16px;
+  padding: 20px 15px;
+  text-align: center;
+  box-shadow: var(--sombra);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  border-top: 5px solid var(--rojo);
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+.card__id {
+  font-size: 0.8rem;
+  color: #999;
+  margin-bottom: 4px;
+}
+
+.card__img {
+  width: 110px;
+  height: 110px;
+  object-fit: contain;
+  image-rendering: pixelated;
+}
+
+.card__name {
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: capitalize;
+  margin: 8px 0 6px;
+}
+
+/* ===== BADGES DE TIPO ===== */
+.types {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.type-badge {
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: var(--blanco);
+  text-transform: capitalize;
+}
+
+/* ===== COLORES POR TIPO ===== */
+.type-fire     { background: #F08030; }
+.type-water    { background: #6890F0; }
+.type-grass    { background: #78C850; }
+.type-electric { background: #F8D030; color: #333; }
+.type-psychic  { background: #F85888; }
+.type-ice      { background: #98D8D8; color: #333; }
+.type-dragon   { background: #7038F8; }
+.type-dark     { background: #705848; }
+.type-fairy    { background: #EE99AC; color: #333; }
+.type-normal   { background: #A8A878; }
+.type-fighting { background: #C03028; }
+.type-flying   { background: #A890F0; }
+.type-poison   { background: #A040A0; }
+.type-ground   { background: #E0C068; color: #333; }
+.type-rock     { background: #B8A038; }
+.type-bug      { background: #A8B820; }
+.type-ghost    { background: #705898; }
+.type-steel    { background: #B8B8D0; color: #333; }
+
+/* ===== PAGINACIÓN ===== */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.pagination__info {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+/* ===== MODAL ===== */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.modal__content {
+  background: var(--blanco);
+  border-radius: 20px;
+  padding: 30px;
+  max-width: 420px;
+  width: 100%;
+  position: relative;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+  text-align: center;
+}
+
+.modal__close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+  color: #999;
+}
+
+.modal__img {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+}
+
+.modal__name {
+  font-size: 1.6rem;
+  font-weight: bold;
+  text-transform: capitalize;
+  margin: 10px 0 5px;
+}
+
+.modal__id   { color: #999; margin-bottom: 10px; }
+.modal__stat { margin: 4px 0; font-size: 0.95rem; }
+
+.stat-bar-wrap {
+  background: #eee;
+  border-radius: 10px;
+  height: 10px;
+  margin: 3px 0 8px;
+  overflow: hidden;
+}
+
+.stat-bar {
+  height: 100%;
+  background: var(--rojo);
+  border-radius: 10px;
+  transition: width 0.6s ease;
+}
+
+/* ===== SKELETON LOADING ===== */
+.skeleton {
+  background: linear-gradient(90deg, #eee 25%, #ddd 50%, #eee 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.2s infinite;
+  border-radius: 16px;
+  height: 220px;
+}
+
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 600px) {
+  .header__title { font-size: 1.6rem; }
+  .grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; }
+  .search__input { max-width: 100%; }
+}
