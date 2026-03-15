@@ -18,36 +18,59 @@
     <h1 class="header__title">Pokédex</h1>
   </header>
 
-  <main class="main">
+  <!-- ===== LAYOUT DE 3 COLUMNAS ===== -->
+  <div class="layout">
 
-    <!-- ===== SECCIÓN DE BÚSQUEDA ===== -->
-    <section class="search">
-      <input
-        type="text"
-        id="search-input"
-        class="search__input"
-        placeholder="Busca un Pokémon por nombre o número..."
-      />
-      <button id="search-btn" class="btn btn--primary">Buscar</button>
-      <button id="reset-btn" class="btn btn--secondary">Ver todos</button>
-    </section>
+    <!-- ===== PANEL IZQUIERDO: FILTRO POR TIPO ===== -->
+    <aside class="panel panel--left">
+      <h2 class="panel__title">Tipos</h2>
+      <div id="type-filter" class="type-filter">
+        <button class="type-btn active" data-type="all">Todos</button>
+      </div>
+    </aside>
 
-    <!-- ===== MENSAJE DE ERROR ===== -->
-    <div id="error-msg" class="error hidden">
-      ❌ Pokémon no encontrado. Intenta con otro nombre o número.
-    </div>
+    <!-- ===== CONTENIDO CENTRAL ===== -->
+    <main class="main">
 
-    <!-- ===== CUADRÍCULA DE POKÉMON ===== -->
-    <section id="pokemon-grid" class="grid"></section>
+      <!-- ===== SECCIÓN DE BÚSQUEDA ===== -->
+      <section class="search">
+        <input
+          type="text"
+          id="search-input"
+          class="search__input"
+          placeholder="Busca un Pokémon por nombre o número..."
+        />
+        <button id="search-btn" class="btn btn--primary">Buscar</button>
+        <button id="reset-btn" class="btn btn--secondary">Ver todos</button>
+      </section>
 
-    <!-- ===== PAGINACIÓN ===== -->
-    <div class="pagination" id="pagination">
-      <button id="prev-btn" class="btn btn--pag" disabled>← Anterior</button>
-      <span id="page-info" class="pagination__info">Página 1</span>
-      <button id="next-btn" class="btn btn--pag">Siguiente →</button>
-    </div>
+      <!-- ===== MENSAJE DE ERROR ===== -->
+      <div id="error-msg" class="error hidden">
+        ❌ Pokémon no encontrado. Intenta con otro nombre o número.
+      </div>
 
-  </main>
+      <!-- ===== CUADRÍCULA DE POKÉMON ===== -->
+      <section id="pokemon-grid" class="grid"></section>
+
+      <!-- ===== PAGINACIÓN ===== -->
+      <div class="pagination" id="pagination">
+        <button id="prev-btn" class="btn btn--pag" disabled>← Anterior</button>
+        <span id="page-info" class="pagination__info">Página 1</span>
+        <button id="next-btn" class="btn btn--pag">Siguiente →</button>
+      </div>
+
+    </main>
+
+    <!-- ===== PANEL DERECHO: LISTA ALFABÉTICA ===== -->
+    <aside class="panel panel--right">
+      <h2 class="panel__title">Lista</h2>
+      <div id="alpha-filter" class="alpha-filter"></div>
+      <ul id="pokemon-list" class="pokemon-list">
+        <li class="list-loading">Cargando...</li>
+      </ul>
+    </aside>
+
+  </div>
 
   <!-- ===== MODAL DE DETALLE ===== -->
   <div id="modal" class="modal hidden">
